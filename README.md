@@ -8,7 +8,7 @@
 
 
 
-![img]("https://github.com/Libambu/Sky-takeaway/blob/main/img/img.png")
+![img](https://github.com/Libambu/Sky-takeaway/blob/main/img/img.png)
 
 ### (1).管理端功能
 
