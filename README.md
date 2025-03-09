@@ -8,7 +8,7 @@
 
 
 
-![img]("E:\program\Sky-takeaway\img\img.png")
+![img]("https://github.com/Libambu/Sky-takeaway/blob/main/img/img.png")
 
 ### (1).管理端功能
 
@@ -20,7 +20,7 @@
 
 ## 三.技术选型
 
-![img](https://github.com/LYT0905/sky-take-out/blob/master/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-02-08%20160846.png)
+![img](https://github.com/Libambu/Sky-takeaway/blob/main/img/img_1.png)
 
 ### (1). 用户层
 
@@ -44,4 +44,4 @@ git: 版本控制工具, 在团队协作中, 使用该工具对项目中的代�
 
 ## 四.开发环境
 
-![img](https://github.com/LYT0905/sky-take-out/blob/master/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-02-08%20160855.png)
+![img](https://github.com/Libambu/Sky-takeaway/blob/main/img/img_2.png)
