@@ -30,4 +30,7 @@ public interface EmployeeMapper {
     //设置员工状态
     //@Update("update employee set status = #{s} where id = #{id}")
     public void update(Employee  employee);
+
+    @Select("select * from employee where id = #{id}")
+    Employee getById(Long id);
 }
