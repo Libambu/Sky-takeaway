@@ -1,9 +1,14 @@
 package com.sky.mapper;
 
+import com.github.pagehelper.Page;
+import com.sky.dto.EmployeePageQueryDTO;
 import com.sky.entity.Employee;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
+
+import java.util.List;
 
 @Mapper
 public interface EmployeeMapper {
@@ -20,4 +25,9 @@ public interface EmployeeMapper {
             +"value "
             +"(#{name},#{username},#{password},#{phone},#{sex},#{idNumber},#{status},#{createTime},#{updateTime},#{createUser},#{updateUser})")
     public void addEmployee(Employee employee);
+    //分页查询
+    public Page<Employee> pageQuery(EmployeePageQueryDTO employeeDTO);
+    //设置员工状态
+    //@Update("update employee set status = #{s} where id = #{id}")
+    public void update(Employee  employee);
 }
