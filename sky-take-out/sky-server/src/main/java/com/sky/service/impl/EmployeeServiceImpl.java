@@ -77,12 +77,12 @@ public class EmployeeServiceImpl implements EmployeeService {
         //设置密码
         employee1.setPassword(DigestUtils.md5DigestAsHex(PasswordConstant.DEFAULT_PASSWORD.getBytes()));
         //设置当前时间
-        employee1.setCreateTime(LocalDateTime.now());
-        employee1.setUpdateTime(LocalDateTime.now());
-        //设置修改人和创建人id
-        //TODO
-        employee1.setCreateUser(BaseContext.getCurrentId());
-        employee1.setUpdateUser(BaseContext.getCurrentId());
+//        employee1.setCreateTime(LocalDateTime.now());
+//        employee1.setUpdateTime(LocalDateTime.now());
+//        //设置修改人和创建人id
+//        //TODO
+//        employee1.setCreateUser(BaseContext.getCurrentId());
+//        employee1.setUpdateUser(BaseContext.getCurrentId());
         employeeMapper.addEmployee(employee1);
     }
     @Override
@@ -117,8 +117,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public void update(Employee employee) {
-        employee.setUpdateTime(LocalDateTime.now());
-        employee.setUpdateUser(BaseContext.getCurrentId());
+//        employee.setUpdateTime(LocalDateTime.now());
+//        employee.setUpdateUser(BaseContext.getCurrentId());
         employee.setPassword(null);
         employeeMapper.update(employee);
     }
