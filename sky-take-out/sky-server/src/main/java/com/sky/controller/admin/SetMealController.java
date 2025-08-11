@@ -13,6 +13,7 @@ import com.sky.vo.DishVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,6 +32,7 @@ public class SetMealController {
     @PostMapping()
     @ApiOperation("新增套餐")
     @Transactional(rollbackFor = Exception.class)
+    @CacheEvict(cacheNames = "setMealCache",key = "#setmealDTO.categoryId")//精确清理
     public Result saveMeal(@RequestBody SetmealDTO setmealDTO){
         SetmealDTO s = setmealDTO;
         Setmeal setmeal = new Setmeal(s.getId(),s.getCategoryId(),s.getName(),s.getPrice(),s.getStatus(),s.getDescription(),s.getImage(), LocalDateTime.now(),LocalDateTime.now(), BaseContext.getCurrentId(),BaseContext.getCurrentId());
@@ -51,6 +53,7 @@ public class SetMealController {
 
     @DeleteMapping()
     @ApiOperation("删除套餐")
+    @CacheEvict(cacheNames = "setMealCache",allEntries = true)//清理所有缓存数据
     public Result deleteMeal(@RequestParam List<Long>ids){
         setMealService.deleteMeal(ids);
         return Result.success();
@@ -63,6 +66,7 @@ public class SetMealController {
      */
     @PostMapping("/status/{status}")
     @ApiOperation("套餐起售停售")
+    @CacheEvict(cacheNames = "setMealCache",allEntries = true)//清理所有缓存数据
     public Result startOrStop(@PathVariable Integer status, Long id) {
         setMealService.startOrStop(status, id);
         return Result.success();
