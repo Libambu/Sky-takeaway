@@ -13,5 +13,32 @@
     <update id="update">
         update orders set status = #{status}, cancel_reason = #{cancelReason},cancel_time = #{cancelTime} where id = #{id}
     </update>
+    <select id="selectTurnover" resultType="java.lang.Double">
+        select sum(amount) from orders where order_time between #{beginTime} and #{endTime} and status = #{i}
+    </select>
+    <select id="sumBymap" resultType="java.lang.Integer">
+        select count(id) from orders
+        <where>
+            <if test="begin!=null">
+                and order_time &gt; #{begin}
+            </if>
+            <if test="end!=null">
+                and order_time &lt; #{end}
+            </if>
+            <if test="status!=null">
+                and status = #{status}
+            </if>
+        </where>
+    </select>
+    <select id="top10List" resultType="com.sky.vo.Top10sqlVO">
+        SELECT od.name,
+               COUNT(od.id) AS num
+        FROM orders o
+                 JOIN order_detail od ON od.order_id = o.id
+        WHERE o.status = 5
+          AND o.order_time BETWEEN #{begin} AND #{end}
+        GROUP BY od.name
+        ORDER BY num DESC
+    </select>
 
 </mapper>
