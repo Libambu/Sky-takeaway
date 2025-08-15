@@ -15,4 +15,6 @@ public interface UserMapper {
 
     //动态条件统计用户数量
     Integer getUserNumByDate(Map map);
+
+    Integer countByMap(Map map);
 }

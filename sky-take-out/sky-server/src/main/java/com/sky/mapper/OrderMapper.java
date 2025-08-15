@@ -31,4 +31,8 @@ public interface OrderMapper {
     Integer sumBymap(Map map);
 
     List<Top10sqlVO> top10List(LocalDateTime begin, LocalDateTime end);
+
+    Integer countByMap(Map map);
+
+    Double sumByMap2(Map map);
 }
